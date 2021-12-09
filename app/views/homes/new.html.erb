@@ -1,5 +1,9 @@
 <div class="celect-main">
-  <h2 class="celect-title">今日もおつかれさま！</h2>
+  <h2 class="celect-title">
+  <% if user_signed_in? %>
+   <%= link_to "#{current_user.nickname}", user_path(current_user), class: :greeting__link%>
+  <% end %>
+  今日もおつかれさま！</h2>
   <%= form_with model: @home, url: homes_result_path, local: true do |f|%>
     <div class="new-celect">
       <div class="category-select">
